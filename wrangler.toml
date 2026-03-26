@@ -2,12 +2,14 @@ name = "hammpions"
 main = "src/index.js"
 compatibility_date = "2026-03-01"
 
+[triggers]
+cron = ["0 0 * * *"]
+
+[[routes]]
+pattern = "hammpions.com"
+custom_domain = true
+zone_name = "hammpions.com"
+
 [[kv_namespaces]]
 binding = "HAMMPIONS_KV"
-id = "tbd"
-
-[browser]
-binding = "BROWSER"
-
-[[triggers.crons]]
-cron = "0 0 * * *"
+id = "HAMMPIONS_KV_ID"
