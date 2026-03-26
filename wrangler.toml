@@ -2,6 +2,8 @@ name = "hammpions"
 main = "src/index.js"
 compatibility_date = "2026-03-01"
 
+assets = { directory = "./media", binding = "ASSETS" }
+
 [triggers]
 crons = ["0 0 * * *"]
 

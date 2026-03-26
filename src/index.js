@@ -59,17 +59,6 @@ export default {
 
   async fetch(request, env) {
     const url = new URL(request.url);
-    if (url.pathname === "/media/hammpions_logo.png") {
-      const logo = await env.HAMMPION_CACHE.get("asset:logo", { type: "arrayBuffer" });
-      if (!logo) return new Response("Logo not found", { status: 404 });
-      
-      return new Response(logo, {
-        headers: { 
-          "Content-Type": "image/png",
-          "Cache-Control": "public, max-age=604800"
-        }
-      });
-    }
     const cachedPage = await env.HAMMPIONS_KV.get("site_index");
     return new Response(cachedPage || "Chilling the beer... (Site is initializing)", {
       headers: { "Content-Type": "text/html; charset=utf-8" }
